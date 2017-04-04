@@ -313,6 +313,9 @@ proc getCurrentAudioDriver*(): cstring {.
 proc openAudio*(desired: ptr AudioSpec; obtained: ptr AudioSpec): cint {.
   importc: "SDL_OpenAudio".}
 
+proc queueAudio*(deviceId: AudioDeviceID, data: pointer, len: uint32): cint {.importc: "SDL_QueueAudio", discardable.}
+proc getQueuedAudioSize*(deviceId: AudioDeviceID): cint {.importc: "SDL_GetQueuedAudioSize".}
+
 #*
 #   Get the number of available devices exposed by the current driver.
 #   Only valid after a successfully initializing the audio subsystem.
