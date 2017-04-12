@@ -114,7 +114,7 @@ proc gameControllerMappingForGUID* (guid: JoystickGuid): cstring {.
   importc: "SDL_GameControllerMappingForGUID".}
 
 
-proc gameControllerAddMappingsFromRW*(rw: RWopsPtr, freerw: cint): cint {.importc: "SDL_GameControllerMappingsFromRW".}
+proc gameControllerAddMappingsFromRW*(rw: RWopsPtr, freerw: cint): cint {.importc: "SDL_GameControllerAddMappingsFromRW".}
 
 proc gameControllerAddMappingsFromFile*(file: cstring): cint =
   return gameControllerAddMappingsFromRW(rwFromFile(file, "rb"), 1)
