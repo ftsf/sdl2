@@ -724,6 +724,9 @@ when not defined(SDL_Static):
 proc getBasePath*(): cstring {.
   importc: "SDL_GetBasePath".}
 
+proc getPrefPath*(org: cstring, app: cstring): cstring {.
+  importc: "SDL_GetPrefPath".}
+
 
 ## functions whose names have been shortened by elision of a type name
 proc getWMInfo*(window: WindowPtr; info: var WMInfo): Bool32 {.
@@ -1195,6 +1198,8 @@ proc videoQuit*() {.importc: "SDL_VideoQuit".}
 proc getCurrentVideoDriver*(): cstring {.importc: "SDL_GetCurrentVideoDriver".}
 proc getNumVideoDisplays*(): cint {.importc: "SDL_GetNumVideoDisplays".}
 
+proc getDisplayUsableBounds*(displayIndex: cint; rect: var Rect): SDL_Return {.
+  importc: "SDL_GetDisplayUsableBounds".}
 proc getDisplayBounds*(displayIndex: cint; rect: var Rect): SDL_Return {.
   importc: "SDL_GetDisplayBounds".}
 proc getNumDisplayModes*(displayIndex: cint): cint {.importc: "SDL_GetNumDisplayModes".}
